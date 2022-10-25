@@ -1,3 +1,28 @@
+const multiply = document.getElementById("multiply");
+const divide = document.getElementById("divide");
+const add = document.getElementById("plus");
+const subtract = document.getElementById("subtract");
+const equals = document.getElementById("equals");
+const clear = document.getElementById("clearButton");
+
+const buttons = document.querySelectorAll('button');
+
+let num1;
+let num2;
+
+let input;
+
+// for all buttons, i want to add an eventlistener tied to that button's ID
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => 
+	    {
+	 	    input = button.id;
+        });
+});
+
+
 function calculate(x, y, z) {
     let result;
 
