@@ -4,19 +4,45 @@
     <head>
         <meta charset="utf-8">
         <title>Calculator</title>
-        <link rel="stylesheet" ref="style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <div class="calculator">
-            <div class="display"></div>
-            <div class="clear"></div>
-            <div class="operands"></div>
-            <div class="digits"></div>
-            <div class="plus_equals"></div>
+        <div id="calculator">
+            <div class="display">display</div>
 
-            <script src="script.js"></script>
+            <div class="clear-container">
+                <button class="clear">clear</button>
+            </div>
+
+            <div class="operands-container">
+                <button class="operands">X</button>
+                <button class="operands">/</button>
+                <button class="operands">-</button>
+            </div>
+
+            <div class="dig-equal">
+                <div class="digits">
+                    <button id="one">1</button>
+                    <button id="two">2</button>
+                    <button id="three">3</button>
+                    <button id="four">4</button>
+                    <button id="five">5</button>
+                    <button id="six">6</button>
+                    <button id="seven">7</button>
+                    <button id="eight">8</button>
+                    <button id="nine">9</button>
+                    <button id="zero">0</button>
+                </div>
+                <div class="plus-equal">
+                    <button id="plus">+</button>
+                    <button id="equals">=</button>
+                </div>
+            </div>
+
         </div>
+
+        <script src="script.js"></script>
     </body>
 
 </html>

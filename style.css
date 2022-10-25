@@ -1,0 +1,93 @@
+#calculator {
+    height: 720px;
+    width: 480px;
+    padding: 6px;
+    border: 4px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    height: 120px;
+    width: auto;
+    border: 2px solid black;
+    margin: 2px;
+}
+
+.clear-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60px;
+    width: auto;
+    margin: 2px;
+}
+
+.clear {
+    height: 60px;
+    width: 300px;
+    border: 2px solid black;
+    margin: 6px;
+    flex: 1 1 0;
+}
+
+.operands-container {
+    height: 60px;
+    width: auto;
+    display: flex;
+    margin: 2px;
+    gap: 4px;
+    flex-wrap: nowrap;
+}
+
+.operands {
+    height: auto;
+    width: auto;
+    border: 2px solid black;
+    flex: 1 1 0;
+}
+
+.dig-equal {
+    flex: 1;
+    height: 60px;
+    width: auto;
+    margin: 2px;
+    margin-top: 4px;
+    display: flex;
+}
+
+.digits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 3;
+}
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine, #zero {
+    flex: auto;
+    width: 96px;
+    height: 96px;
+    margin-top: 4px;
+    border: 2px solid black;
+}
+
+.plus-equal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    margin-right: 0px;
+    margin-left: 6px;
+    gap: 10px;
+}
+
+#plus {
+    flex: 2 1 0;
+    border: 2px solid black;
+}
+
+#equals {
+    flex: 1 1 0;
+    border: 2px solid black;
+}
