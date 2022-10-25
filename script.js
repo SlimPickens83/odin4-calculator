@@ -9,16 +9,30 @@ const buttons = document.querySelectorAll('button');
 
 let num1;
 let num2;
+let operand;
 
 let input;
 
-// for all buttons, i want to add an eventlistener tied to that button's ID
+let display;
 
+// for all buttons, i want to add an eventlistener tied to that button's ID
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => 
 	    {
 	 	    input = button.id;
+            
+            if(typeof input === "number") {
+                if(typeof num1 !== "number") {
+                    num1 = input;
+                } else {
+                    num2 = input;
+                }
+            } else if (input === "multiply" || input === "divide" || input === "subtract" || input === "add") {
+                operand = input;
+            } else if (input === "equals") {
+                calculate(num1, operand, num2);
+            }
         });
 });
 
