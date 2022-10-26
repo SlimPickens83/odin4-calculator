@@ -7,15 +7,25 @@ const clear = document.getElementById("clearButton");
 
 const buttons = document.querySelectorAll('button');
 
-let num1;
-let num2;
+let num1 = [];
+let num2 = [];
 let operand;
 
 let input;
+let operandPush = false;
 
-let display;
+let display = [];
+let displayCount = display.length - 1;
+let emptyDisplay = display.slice();
+let calcNumbers = [];
+let calcNumCount = calcNumbers.length - 1;
+let currentNum = [];
 
 // for all buttons, i want to add an eventlistener tied to that button's ID
+// number inputs should build up in an array whose contents update in the display box in real time
+// those contents need to be saved as a number in a separate variable while display contains and shows
+// all digits entered for each number as well as any operands
+
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => 
@@ -23,15 +33,34 @@ buttons.forEach((button) => {
 	 	    input = button.id;
             
             if(typeof input === "number") {
-                if(typeof num1 !== "number") {
-                    num1 = input;
-                } else {
-                    num2 = input;
+                currentNum.push(input);
+
+                display = emptyDisplay;
+
+                for(i = 0; i < currentNum.length; i++) {
+                    display.push(currentNum[i]);
                 }
+                
             } else if (input === "multiply" || input === "divide" || input === "subtract" || input === "add") {
+                let makeNum = Number(currentNum.join(""));
+                let newNum = currentNum.slice();
+                
                 operand = input;
+                display.push(operand);
+
+                calcNumbers.push[makeNum];
+                currentNum = newNum;
+
             } else if (input === "equals") {
-                calculate(num1, operand, num2);
+                let result;
+
+                display = emptyDisplay;
+
+                for(i = 0; i < calcNumCount; i++) {
+                    result = calculate(calcNumbers[i], operand, calcNumbers(i + 1));
+
+                    display.push(result);
+                }
             }
         });
 });
@@ -51,6 +80,8 @@ function calculate(x, y, z) {
     } else {
         result = "ERROR";
     }
+
+    return result;
 }
 
 function add(x, y) {
