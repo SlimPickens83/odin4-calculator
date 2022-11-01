@@ -9,7 +9,7 @@
 
     <body>
         <div id="calculator">
-            <div class="display">display</div>
+            <div id="display"></div>
 
             <div class="clear-container">
                 <button id="clearButton" class="clear">clear</button>
@@ -23,16 +23,28 @@
 
             <div class="dig-equal">
                 <div class="digits">
-                    <button id="one">1</button>
-                    <button id="two">2</button>
-                    <button id="three">3</button>
-                    <button id="four">4</button>
-                    <button id="five">5</button>
-                    <button id="six">6</button>
-                    <button id="seven">7</button>
-                    <button id="eight">8</button>
-                    <button id="nine">9</button>
-                    <button id="zero">0</button>
+                    <div class="digit-row">
+                        <button id="1" class="digit-button">1</button>
+                        <button id="2" class="digit-button">2</button>
+                        <button id="3" class="digit-button">3</button>
+                    </div>
+
+                    <div class="digit-row">
+                        <button id="4" class="digit-button">4</button>
+                        <button id="5" class="digit-button">5</button>
+                        <button id="6" class="digit-button">6</button>
+                    </div>
+
+                    <div class="digit-row">
+                        <button id="7" class="digit-button">7</button>
+                        <button id="8" class="digit-button">8</button>
+                        <button id="9" class="digit-button">9</button>
+                    </div>
+
+                    <div class="digit-row">
+                        <button id="0" class="digit-button">0</button>
+                    </div>
+
                 </div>
                 <div class="plus-equal">
                     <button id="add">+</button>
