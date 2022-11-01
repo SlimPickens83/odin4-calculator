@@ -17,8 +17,6 @@ let equalsTrue = false;
 let input;
 let displayMemory = [];
 let calcNumbers = [];
-let calcNumber1 = [];
-let calcNumber2 = [];
 let currentNum = [];
 let makeNum;
 
@@ -99,7 +97,7 @@ buttons.forEach((button) => {
                     if (i > 0) {
                         calcNumbers.shift();
                     }
-                    
+
                     calcNumbers.shift();
                     calcNumbers.unshift(result);
                     
