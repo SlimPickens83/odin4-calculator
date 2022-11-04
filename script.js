@@ -31,23 +31,22 @@ buttons.forEach((button) => {
         input = button.id;          
                         
 		if (input === "multiply" || input === "divide" || input === "subtract" || input === "add") {
+            if(equalsTrue === true) {
+                clearAll();
+            }
             
-            operand = input;            
-
             calcNumbers.push(makeNum);
 
-            if (input === "multiply") {
-                operandLiteral = " * "
-            } else if (input === "divide") {
-            	operandLiteral = " / ";
-            } else if (input === "subtract") {
-            	operandLiteral = " - ";
-            } else if (input === "add") {
-            	operandLiteral = " + ";
-            }
+            if (operandTrue === true) {  
+                    console.log(`calcNumbers: ${calcNumbers}`);
+                    console.log(`displayMemory: ${displayMemory}`); 
+                // clearThis(calcNumbers);
 
-            if (operandTrue === true) {    
                 result = calculate(calcNumbers[0], operand, calcNumbers[1]);
+
+                operand = input;
+
+                    console.log(`Value of seconary operand: ${operand}`);
                 
                 if(calcNumbers.length > 1) {
                     calcNumbers.shift();
@@ -56,23 +55,56 @@ buttons.forEach((button) => {
                 calcNumbers.shift();
                 calcNumbers.unshift(result);
 
+                    console.log(`calcNumbers after shifting and unshifting: ${calcNumbers}`);
+
+                if (input === "multiply") {
+                    operandLiteral = " * "
+                } else if (input === "divide") {
+                    operandLiteral = " / ";
+                } else if (input === "subtract") {
+                    operandLiteral = " - ";
+                } else if (input === "add") {
+                    operandLiteral = " + ";
+                }
+
+                console.log(`operandLiteral: ${operandLiteral}`);
+
                 let x = result.toString();
+                    console.log(`Result of calculate after changing it to a string: ${x}`);
                 clearThis(displayMemory);
+                    console.log(`displayMemory after clear: ${displayMemory}`);
                 displayMemory.push(x);
                 displayMemory.push(operandLiteral);
+                    console.log(`displayMemmory after pushing the result and operand: ${displayMemory}`);
                 display.textContent = displayMemory.join("");
+
+                clearThis(currentNum);
             
             } else {
-                    console.log(operandTrue);
+
+                operand = input;            
+
+                // calcNumbers.push(makeNum);
+
+                if (input === "multiply") {
+                    operandLiteral = " * "
+                } else if (input === "divide") {
+            	    operandLiteral = " / ";
+                } else if (input === "subtract") {
+            	    operandLiteral = " - ";
+                } else if (input === "add") {
+            	    operandLiteral = " + ";
+                }
+
                 displayMemory.push(operandLiteral);
                 display.textContent = displayMemory.join("");
 
-                operandTrue = true;
-            
-            }
+                operandTrue = true;    
 
-            numTrue = false;
-            clearThis(currentNum);
+                numTrue = false;
+                clearThis(currentNum);
+
+            }
 
         } else if (input === "equals") {
             calcNumbers.push(makeNum);
@@ -109,20 +141,14 @@ buttons.forEach((button) => {
             
             }
 
-            clearThis(calcNumbers);
             clearThis(currentNum);
 
         } else if (input === "clearButton") {
-            clearThis(displayMemory);
-            clearThis(calcNumbers);
-            clearThis(currentNum);
-
-            display.textContent = displayMemory;
+            clearAll();
 
         } else {
             if(equalsTrue) {
-                clearThis(displayMemory);
-                equalsTrue = false;
+                clearAll();
             }
 
 		    input = Number(button.id);
@@ -131,7 +157,7 @@ buttons.forEach((button) => {
             let a = currentNum.join("");
             makeNum = Number(a);
 
-            if(numTrue === true) {
+            if(numTrue === true && operandTrue === false) {
                 displayMemory.pop();
 
             }
@@ -188,4 +214,17 @@ function division(x, y) {
 
 function clearThis(x) {
     x.splice(0, x.length);
+}
+
+function clearAll() {
+    clearThis(displayMemory);
+    clearThis(calcNumbers);
+    clearThis(currentNum);
+
+    display.textContent = displayMemory;
+
+    numTrue = false;
+    operandTrue = false;
+    equalsTrue = false;
+
 }
