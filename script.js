@@ -33,63 +33,64 @@ buttons.forEach((button) => {
 		if (input === "multiply" || input === "divide" || input === "subtract" || input === "add") {
             if(equalsTrue === true) {
                 clearAll();
-            }
-            
-            calcNumbers.push(makeNum);
 
-            if (operandTrue === true) { 
+            } else {            
+                calcNumbers.push(makeNum);
 
-                result = calculate(calcNumbers[0], operand, calcNumbers[1]);
+                if (operandTrue === true) { 
 
-                operand = input;
+                    result = calculate(calcNumbers[0], operand, calcNumbers[1]);
+
+                    operand = input;
                 
-                if(calcNumbers.length > 1) {
+                    if(calcNumbers.length > 1) {
+                        calcNumbers.shift();
+                    }
+                
                     calcNumbers.shift();
-                }
-                
-                calcNumbers.shift();
-                calcNumbers.unshift(result);
+                    calcNumbers.unshift(result);
 
-                if (input === "multiply") {
-                    operandLiteral = " * "
-                } else if (input === "divide") {
-                    operandLiteral = " / ";
-                } else if (input === "subtract") {
-                    operandLiteral = " - ";
-                } else if (input === "add") {
-                    operandLiteral = " + ";
-                }
+                    if (input === "multiply") {
+                        operandLiteral = " * "
+                    } else if (input === "divide") {
+                        operandLiteral = " / ";
+                    } else if (input === "subtract") {
+                        operandLiteral = " - ";
+                    } else if (input === "add") {
+                        operandLiteral = " + ";
+                    }
 
-                let x = result.toString();
-                clearThis(displayMemory);
-                displayMemory.push(x);
-                displayMemory.push(operandLiteral);
-                display.textContent = displayMemory.join("");
+                    let x = result.toString();
+                    clearThis(displayMemory);
+                    displayMemory.push(x);
+                    displayMemory.push(operandLiteral);
+                    display.textContent = displayMemory.join("");
 
-                clearThis(currentNum);
+                    clearThis(currentNum);
             
-            } else {
+                } else {
 
-                operand = input;
+                    operand = input;
 
-                if (input === "multiply") {
-                    operandLiteral = " * "
-                } else if (input === "divide") {
-            	    operandLiteral = " / ";
-                } else if (input === "subtract") {
-            	    operandLiteral = " - ";
-                } else if (input === "add") {
-            	    operandLiteral = " + ";
+                    if (input === "multiply") {
+                        operandLiteral = " * "
+                    } else if (input === "divide") {
+            	        operandLiteral = " / ";
+                    } else if (input === "subtract") {
+            	        operandLiteral = " - ";
+                    } else if (input === "add") {
+            	        operandLiteral = " + ";
+                    }
+
+                    displayMemory.push(operandLiteral);
+                    display.textContent = displayMemory.join("");
+
+                    operandTrue = true;    
+
+                    numTrue = false;
+                    clearThis(currentNum);
+
                 }
-
-                displayMemory.push(operandLiteral);
-                display.textContent = displayMemory.join("");
-
-                operandTrue = true;    
-
-                numTrue = false;
-                clearThis(currentNum);
-
             }
 
         } else if (input === "equals") {
