@@ -37,16 +37,11 @@ buttons.forEach((button) => {
             
             calcNumbers.push(makeNum);
 
-            if (operandTrue === true) {  
-                    console.log(`calcNumbers: ${calcNumbers}`);
-                    console.log(`displayMemory: ${displayMemory}`); 
-                // clearThis(calcNumbers);
+            if (operandTrue === true) { 
 
                 result = calculate(calcNumbers[0], operand, calcNumbers[1]);
 
                 operand = input;
-
-                    console.log(`Value of seconary operand: ${operand}`);
                 
                 if(calcNumbers.length > 1) {
                     calcNumbers.shift();
@@ -54,8 +49,6 @@ buttons.forEach((button) => {
                 
                 calcNumbers.shift();
                 calcNumbers.unshift(result);
-
-                    console.log(`calcNumbers after shifting and unshifting: ${calcNumbers}`);
 
                 if (input === "multiply") {
                     operandLiteral = " * "
@@ -67,24 +60,17 @@ buttons.forEach((button) => {
                     operandLiteral = " + ";
                 }
 
-                console.log(`operandLiteral: ${operandLiteral}`);
-
                 let x = result.toString();
-                    console.log(`Result of calculate after changing it to a string: ${x}`);
                 clearThis(displayMemory);
-                    console.log(`displayMemory after clear: ${displayMemory}`);
                 displayMemory.push(x);
                 displayMemory.push(operandLiteral);
-                    console.log(`displayMemmory after pushing the result and operand: ${displayMemory}`);
                 display.textContent = displayMemory.join("");
 
                 clearThis(currentNum);
             
             } else {
 
-                operand = input;            
-
-                // calcNumbers.push(makeNum);
+                operand = input;
 
                 if (input === "multiply") {
                     operandLiteral = " * "
